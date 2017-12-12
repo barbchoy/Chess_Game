@@ -1,10 +1,12 @@
 require_relative 'piece'
+require_relative 'nullpiece'
 class Board
   attr_accessor :grid
 
   def initialize(grid = make_starting_grid)
     @grid = grid
   end
+
 
   def [](pos)
     @grid[pos[0]][pos[1]]
@@ -36,7 +38,7 @@ class Board
   protected
 
   def make_starting_grid(size = 8)
-    grid = Array.new(size) { Array.new(size){nil} }
+    grid = Array.new(size) { Array.new(size){ NullPiece.new } }
 
     grid[0].map!{ |space| space = Piece.new}
     grid[1].map!{ |space| space = Piece.new}
