@@ -1,3 +1,4 @@
+require 'byebug'
 require 'colorize'
 require_relative 'cursor'
 require_relative 'board'
@@ -5,12 +6,8 @@ require_relative 'board'
 
 class Display
 
-  PIECES = {
-    :p => 'P',
-    :n => 'n'
-  }
 
-  def initialize(board)
+  def initialize(board = Board.new)
     @cursor = Cursor.new([0,0], board)
     @board = board
   end
@@ -26,9 +23,21 @@ class Display
     #   end
     #   puts ""
     # end
-    pc = @board[[3,4]]
-    p pc.symbol
-    p PIECES[pc.symbol]
+
+    @board.grid.each do |row|
+      row.each do |space|
+        print " #{space.symbol} "
+      end
+      puts ""
+    end
+
   end
+
+end
+
+if __FILE__ == $PROGRAM_NAME
+  dis = Display.new
+
+  dis.render
 
 end

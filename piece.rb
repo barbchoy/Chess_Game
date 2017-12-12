@@ -1,7 +1,10 @@
+
 class Piece
 
+  attr_accessor :symbol
+
   def initialize()
-    @symbol = :p
+    @symbol = "\u265f"
 
   end
 
@@ -14,7 +17,7 @@ class Piece
   end
 
   def symbol
-    
+    @symbol
   end
 
   def valid_moves
@@ -27,4 +30,9 @@ class Piece
 
   end
 
+end
+
+if __FILE__ == $PROGRAM_NAME
+  pc = Piece.new
+  p "#{pc.symbol}"
 end

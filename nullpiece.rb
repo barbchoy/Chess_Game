@@ -1,8 +1,8 @@
 require_relative 'piece'
 
-class NullPiece < Piece
+class Null_Piece < Piece
   def initialize()
-    @symbol = :n
+    @symbol = "_"
 
   end
 

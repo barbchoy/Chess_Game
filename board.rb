@@ -38,7 +38,7 @@ class Board
   protected
 
   def make_starting_grid(size = 8)
-    grid = Array.new(size) { Array.new(size){ NullPiece.new } }
+    grid = Array.new(size) { Array.new(size){ Null_Piece.new } }
 
     grid[0].map!{ |space| space = Piece.new}
     grid[1].map!{ |space| space = Piece.new}
