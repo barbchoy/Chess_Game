@@ -3,21 +3,24 @@ class Piece
 
   attr_accessor :symbol
 
-  def initialize()
-    @symbol = "\u265f"
+  def initialize(position, board)
+    @symbol = "♟"
+    @position = nil # [1, 2]
+    @board = board
+  end
+
+  def moves()
+    moves = []
+    
 
   end
 
   def to_s
-
+    @symbol
   end
 
   def empty
 
-  end
-
-  def symbol
-    @symbol
   end
 
   def valid_moves

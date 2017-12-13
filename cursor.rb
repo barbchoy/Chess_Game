@@ -77,7 +77,7 @@ class Cursor
 
   def handle_key(key)
     case key
-    when :space || :return
+    when :space, :return
       @cursor_pos
     when :left # 'h' || 'a' || '\e[D'
       update_pos(MOVES[:left])
@@ -99,6 +99,15 @@ class Cursor
   def update_pos(diff)
     @cursor_pos[0] += diff[0]
     @cursor_pos[1] += diff[1]
+
+    unless @board.in_bounds(@cursor_pos)
+      @cursor_pos[0] -= diff[0]
+      @cursor_pos[1] -= diff[1]
+      puts "invalid move"
+      get_input
+    end
+    
     @cursor_pos
   end
+
 end
